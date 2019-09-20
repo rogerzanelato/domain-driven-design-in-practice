@@ -7,7 +7,7 @@ Repositório com o projeto prático feito no decorrer do curso e anotações pes
 [Professor Vladimir Khorikov](http://enterprisecraftsmanship.com/)
 
 ## Introduction
-Lembre-se que o DDD não é uma bala de prata (que alias, não existem), DDD é aplicável apenas há uma gama de projetos específicos.
+Lembre-se que o DDD não é uma bala de prata (que alias, não existem), DDD é aplicável apenas a uma gama de projetos específicos.
 
 Todo Software possuí alguns atributos em comum:
 - Quantidade de dados
@@ -32,10 +32,10 @@ O objetivo do DDD é produzir sistemas fortemente orientado a negócios que seja
 
 ### DDD Is Not Only About Writing Code
 Os desenvolvedores devem estar em constante contato com o negócio e evoluírem constatamente no entendimento sobre o domínio.
-Todos os desenvolvedores devem estar cientes do ponto de vista do Cliente (Domain Expert) e do que estão cumprindo.
+Todos os desenvolvedores devem estar cientes do ponto de vista do Domain Expert e do que estão cumprindo.
 
 ### Application Architecture
-Arquitetura DDD pode ser visualizada como uma Cebola (see Onion Architecture), é uma arquitetura composta por Camadas!
+Arquitetura DDD pode ser visualizada como uma Cebola (see Onion Architecture), é uma arquitetura composta por Camadas.
 
 ![](https://i.imgur.com/9kqcdqP.png)
 
@@ -44,11 +44,9 @@ A regra é que cada "Bloco" pode ter conhecimento dos outros blocos da mesma cam
 Obs: O banco de dados estará sempre na camada `Repository`, se você vai utilizar uma ORM ou efetuar as query diretamente, não importa! Mas as interações com o banco ocorrerão por lá.
 
 **E porque essa separação é importante?**
-Por causa da separação de preocupações!
+Por causa da separação de preocupações.
 
-
-As regras de negócios estarão (se não toda, a maioria esmagadora) nos objetos centrais, em especial, as `Entity` e `Value Object`. Esses objetos não devem ter CONHECIMENTO NENHUM, de como vão ser persistidos, construídos, mapeados no banco de dados. NENHUM! Tudo que eles devem saber, é o **Domínio** que representam.
-
+As regras de negócios estarão (se não toda, a maioria esmagadora) nos objetos centrais, em especial, as `Entity` e `Value Object`. Esses objetos não devem ter CONHECIMENTO NENHUM, de como vão ser persistidos, construídos ou mapeados no banco de dados. Tudo que eles devem saber é o **Domínio** que representam.
 
 Lembre: Quanto mais limpo e claro você manter seu modelo, mais fácil será entendê-lo mais tarde.
 
@@ -87,7 +85,7 @@ Neste curso, será programado utilizando conceitos de DDD uma "Máquina de Lanch
 ### Dicas
 - Comece sempre com o `Core Domain`
 - Não introduza vários `Bounded Contexts` logo de cara. Sim, isso mesmo! Não crie as delimitações logo de cara. Comece sempre com apenas um Bounded Context tentando encapsular toda a regra de negócios da aplicação. E porque? Embora separar a aplicação em contextos ajude a diminuir a complexidade do código, sua aplicação só é justificada quando a base de código já está suficientemente grande. Do contrário, vamos apenas introduzir mais complexidade desnecessária!
-- SEMPRE revise o código e procure por "abstrações ocultas" , e se sentir que o código está "estranho", teste abordagens diferentes para ver se são mais adequadas para nosso problema.
+- Sempre revise o código e procure por "abstrações ocultas" , e se sentir que o código está "estranho", teste abordagens diferentes para ver se são mais adequadas para nosso problema.
 
 ### Types of Equality
 Tipos de comparação:
@@ -169,7 +167,7 @@ Como vimos acima, o bounded context possuí uma relação de 1-1 com o sub-domí
 E como identificá-lo?
 **Fale com os experts das Regras de Negócio!**
 
-Apenas apenas conseguirão identificar e informatar como  a área de atuação está divida.
+Apenas eles conseguirão identificar e informatar como  a área de atuação está divida.
 
 ### Single Bounded Context?
 
@@ -177,13 +175,13 @@ Muitas vezes, após ter identificado os múltiplos sub-domínios, o problema pod
 
 Apesar disso, é recomendado que essa prática seja evitada.
 
-Utilizar um único Bounded Context para atacar múltiplos sub-domínios irá causar problemas à longo prazo. Em pouco tempo terá uma base de código macarrão, com difícil manutenção.
+Utilizar um único Bounded Context para atacar múltiplos sub-domínios irá causar problemas à longo prazo. Em pouco tempo terá uma base de código macarrão de difícil manutenção.
 
 ### Considerações
 
 Antes de fazer a separação, é importante considerar o quão grande o projeto está se tornando e a equipe em geral.
 
-Se a base de código estiver crescendo demasiada complexa, ou o contexto por si só for demasiado grande, poderá ser necessário alocar um time de desenvolvedores para lidar com cada Bounded Context. O que em muitos casos, seria o ideal.
+Se a base de código estiver crescendo demasiada complexa, ou o contexto por si só for demasiado grande, poderá ser necessário alocar um time de desenvolvedores para lidar com cada Bounded Context. O que em muitos casos é o ideal.
 
 Portanto, sempre reavalie o projeto e leve em consideração todo o contexto.
 
@@ -193,20 +191,20 @@ Portanto, sempre reavalie o projeto e leve em consideração todo o contexto.
 
 ### Tipos de Isolação entre Bounded Context
 
-1. No mesmo Assembly:
+**1. No mesmo Assembly:**
 	- Maior dificuldade em Isolar corretamente
 	- Projeto pode crescer demasiado grande
 	- Mais fácil de se trabalhar e efetuar deploy
 
 ![](https://i.imgur.com/a0aoxZh.png)
 
-2. Em Assemblies separados:
+**2. Em Assemblies separados:**
 	- Projeto pode crescer demasiado grande
 	- Mais fácil de se trabalhar e efetuar deploy
 	
 ![](https://i.imgur.com/2MBipbJ.png)
 
-3. Em deploys separados ( **MicroServiços** \o/ )
+**3. Em deploys separados** ( **MicroServiços** \o/ )
 	- Um grupo de projeto para cada `Bounded Context`
 	- Fácil de manter as regras de isolação
 	- Possívelmente, maior sobrecarga de manutenção e maior dificuldade em deploys
@@ -267,11 +265,12 @@ Recomendado: Aplicar a validação diretamente na classe, para garantir a integr
 ### Anemic Domains Model Anti-Pattern
 
 Evite criar `Model Domains` anêmicos.
+
 [AnemicDomainModel - Martin Fowler](https://martinfowler.com/bliki/AnemicDomainModel.html)
 
 ### Fat Entitites Anti-Pattern
 
-Ao contrário de entidades anêmicas, `Fat Entities` são entidades que possuem lógica demais ou responsabilidades não naturais. Reavalie sempre se a lógica que está aplicando, está sendo feita no local adequado.
+Ao contrário de entidades anêmicas, `Fat Entities` são entidades que possuem lógica demais ou responsabilidades não naturais. Reavalie sempre se a lógica que está aplicando está sendo feita no local adequado.
 
 Caso ela esteja muito extensa, pode ser um sinal de que deve quebrá-la em partes menores.
 
@@ -279,7 +278,7 @@ Lembre-se: Seu Domain Model não é um espelho do Banco de Dados.
 
 ### Repository Anti-Patterns
 
-**Não retorne entidades parcialmente carregadas!**.
+**Não retorne entidades parcialmente carregadas!**
 
 Embora essa prática diminua o uso de memória e tenha ganho de performance, ao retornar entidades que não estão corretamente populadas, estaremos retornando entidades que não são válidas no contexto do negócio.
 
