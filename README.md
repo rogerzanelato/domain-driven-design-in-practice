@@ -295,3 +295,17 @@ Se o DDD não possuí modelos pronto, então não faz sentido utilizar ferrament
 ## Lista de Recursos Adicionais
 
 ![](https://i.imgur.com/wDdnMeg.png)
+
+## Extras
+
+### Onde coloco minha validação?
+
+Essa pergunta deu origem a diferente escolas de pensamento dentro do escopoe de DDD.
+[Validation in Domain-Driven Design (DDD)
+](http://gorodinski.com/blog/2012/05/19/validation-in-domain-driven-design-ddd/)
+
+Mas basicamente, o ideal (segundo muitos) é que sua `Domain Layer` faça as validações das entidades dentro delas mesmo, sem utilização de frameworks globais. Dessa forma, suas entidades terão por todo o sistema um estado de "Sempre válido".
+
+Após isso, Frameworks de Validação podem ser utilizadas na `Application Layer`, para ter mensagens de erro mais adequada, mesmo que isso cause de certa forma duplicação nas validação.
+
+Lembre também que algumas validação de negócio, podem ser feita apenas por `Domain Classes`. Por exemplo, "Cliente A pode receber X limite de crédito?", "Usuário B já existe no banco de dados?".
