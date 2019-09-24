@@ -6,6 +6,8 @@ Repositório com o projeto prático feito no decorrer do curso e anotações pes
 
 [Professor Vladimir Khorikov](http://enterprisecraftsmanship.com/)
 
+[Excelente artigo](https://visualstudiomagazine.com/articles/2015/07/01/domain-driven-design.aspx)
+
 ## Introduction
 Lembre-se que o DDD não é uma bala de prata (que alias, não existem), DDD é aplicável apenas a uma gama de projetos específicos.
 
