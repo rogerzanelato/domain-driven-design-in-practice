@@ -8,6 +8,8 @@ Repositório com o projeto prático feito no decorrer do curso e anotações pes
 
 [Excelente artigo](https://visualstudiomagazine.com/articles/2015/07/01/domain-driven-design.aspx)
 
+[DDD não é arquitetura em camadas](https://www.eduardopires.net.br/2016/08/ddd-nao-e-arquitetura-em-camadas/)
+
 ## Introduction
 Lembre-se que o DDD não é uma bala de prata (que alias, não existem), DDD é aplicável apenas a uma gama de projetos específicos.
 
